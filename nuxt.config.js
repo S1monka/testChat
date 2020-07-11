@@ -44,5 +44,6 @@ export default {
 
   router: {
     middleware: ['auth'],
+    base: '/testChat/',
   },
 }
