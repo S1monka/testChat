@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     user() {
-      return this.$route.params.userName || this.$store.state.userName
+      return this.$store.state.userName
     },
   },
 }

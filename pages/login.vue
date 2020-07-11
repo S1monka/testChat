@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" sm="8" md="4">
+  <v-col cols="12" sm="8" md="5">
     <v-card color="primary" outlined>
       <v-toolbar color="primary" dark flat>
         <v-spacer></v-spacer>
@@ -19,7 +19,7 @@
           ></v-text-field>
         </v-form>
         <v-alert
-          :value="$store.state.error"
+          :value="error"
           color="pink"
           dark
           dense
@@ -36,15 +36,14 @@
 </template>
 
 <script>
-import auth from '@/middleware/auth'
+import Cookies from 'js-cookie'
 export default {
-  data: () => ({
-    userName: '',
-  }),
-  middleware: auth,
+  data(context) {
+    return { userName: '' }
+  },
   computed: {
     error() {
-      return this.$store.state.error
+      return this.$store.getters.error
     },
   },
   methods: {

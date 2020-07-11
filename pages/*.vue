@@ -1,6 +1,7 @@
+<template> </template>
+
 <script>
-import auth from '@/middleware/auth'
-export default {
-  middleware: auth,
-}
+export default {}
 </script>
+
+<style lang="scss" scoped></style>

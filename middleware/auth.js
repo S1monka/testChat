@@ -1,7 +1,12 @@
-export default function ({ store, redirect, route }) {
-  let { isLogin } = store.state
+import Cookies from 'js-cookie'
+export default function ({ store, route, redirect, app }) {
+  const { isLogin } = store.state
   if (route.name !== 'chat' && route.name !== 'login') {
-    return redirect({ name: 'login' })
+    if (isLogin) {
+      return redirect({ name: 'chat' })
+    } else {
+      return redirect({ name: 'login' })
+    }
   }
   if (route.name == 'chat') {
     if (!isLogin) {
@@ -13,5 +18,4 @@ export default function ({ store, redirect, route }) {
       return redirect({ name: 'chat' })
     }
   }
-  console.log(route.params)
 }

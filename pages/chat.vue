@@ -2,6 +2,7 @@
   <v-col sm="12" md="10" class="flex-grow-1 flex-shrink-0">
     <v-responsive
       class="overflow-y-hidden fill-height"
+      height="500"
       min-height="200"
       max-height="550"
     >
@@ -49,13 +50,10 @@
 </template>
 
 <script>
-import axios from 'axios'
-import auth from '@/middleware/auth'
 export default {
   async fetch({ store }) {
     await store.dispatch('getMessages')
   },
-  middleware: auth,
   data: () => ({
     message: '',
     polling: null,
@@ -74,7 +72,7 @@ export default {
       this.message = ''
       setTimeout(() => {
         this.scrollBottom()
-      }, 705)
+      }, 800)
     },
     pollData() {
       this.polling = setInterval(() => {
@@ -88,7 +86,7 @@ export default {
     },
     logout() {
       this.$store.commit('setLogout')
-      this.$router.push('/')
+      this.$router.push({ name: 'login', params: { login: 'login' } })
     },
   },
   mounted() {
