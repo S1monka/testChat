@@ -1,5 +1,4 @@
 import createPersistedState from 'vuex-persistedstate'
-import Cookies from 'js-cookie'
 import axios from 'axios'
 
 import Vue from 'vue'
@@ -14,11 +13,6 @@ const store = () =>
     plugins: [
       createPersistedState({
         paths: ['userName', 'isLogin'],
-        storage: {
-          getItem: (key) => Cookies.get(key),
-          setItem: (key, value) => Cookies.set(key, value),
-          removeItem: (key) => Cookies.remove(key),
-        },
       }),
     ],
     state: {

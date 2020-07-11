@@ -1,5 +1,4 @@
-import Cookies from 'js-cookie'
-export default function ({ store, route, redirect, app }) {
+export default function ({ store, route, redirect }) {
   const { isLogin } = store.state
   if (route.name !== 'chat' && route.name !== 'login') {
     if (isLogin) {

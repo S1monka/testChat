@@ -85,8 +85,8 @@ export default {
       container.scrollTop = container.scrollHeight
     },
     logout() {
+      this.$router.push({ name: 'login' })
       this.$store.commit('setLogout')
-      this.$router.push({ name: 'login', params: { login: 'login' } })
     },
   },
   mounted() {
